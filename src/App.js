@@ -329,22 +329,43 @@ function App() {
   //////////////////////////////////  code for export as JSON  ////////////////////////////
 
   const exportAsJson = () => {
+    const serializedNodes = nodes.map(({ id, type, data, position }) => ({
+      id,
+      type,
+      data: {
+        provider: data.provider,
+        label: typeof data.label === 'object' ? 'SerializedLabel' : data.label,
+      },
+      position,
+    }));
+
+    const serializedEdges = edges.map(({ id, source, target }) => ({
+      id,
+      source,
+      target,
+    }));
+
     const workflowData = {
-      nodes,
-      edges,
+      nodes: serializedNodes,
+      edges: serializedEdges,
     };
 
-    const dataStr = JSON.stringify(workflowData, null, 2);
-    const dataBlob = new Blob([dataStr], { type: 'application/json' });
-    const url = URL.createObjectURL(dataBlob);
+    try {
+      const dataStr = JSON.stringify(workflowData, null, 2);
+      const dataBlob = new Blob([dataStr], { type: 'application/json' });
+      const url = URL.createObjectURL(dataBlob);
 
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'workflow.json';
-    link.click();
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'workflow.json';
+      link.click();
 
-    URL.revokeObjectURL(url);
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Error exporting workflow:', error);
+    }
   };
+
 
   //////////////////////////////////  code for Import as JSON  ////////////////////////////
 
