@@ -1,0 +1,136 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box; /* Ensures padding and borders are included in width/height */
+}
+
+.react-flow__node-default {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown {
+  padding: 17px;
+  border-radius: 30px;
+  background-color: rgb(234, 232, 232);
+  cursor: pointer;
+  height: 7vh; 
+  transition: background-color 0.3s, color 0.3s; 
+  font-size: 12px;
+  margin-right: 10px; 
+  min-width: 200px; 
+  padding: 5px; 
+  border-radius: 5px; 
+  border: 1px solid #ccc; 
+  height: 40px; 
+}
+
+
+.dropdown:hover {
+  color: rgb(81, 79, 79); /* Change text color for better contrast */
+}
+
+.payment-initializer{ display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.button-one{
+  margin-left: auto;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: red;
+
+}
+.autoLayout{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 2px solid #000;
+  cursor: pointer;
+  color: #000;
+  height: 40px; 
+  border-radius: 10px;
+  background-color: rgb(240,240,240);
+}
+.undo{
+
+    margin-left: 10px; /* Corrected margin-left */
+    display: flex;
+    align-items: center;
+    height: 40px; /* Set height to match dropdown */
+    border-radius: 15px; /* Corrected border-radius */
+  
+}
+
+.error-msg {
+  color: red;
+  position: absolute;
+  top: 10px; /* Adjust this based on the height of your header */
+  left: 50%; /* Start from the center of the parent */
+  transform: translateX(-50%); /* Move left by half its width */
+  padding: 13px;
+  background-color: white;
+  border: 1px solid red;
+  border-radius: 5px;
+  z-index: 10;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  white-space: nowrap; 
+}
+.header{
+  padding: 10px;
+  width:100% ;
+  display:flex ;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #a8e0f5, #b9fbc0); 
+  border: 2px solid #000;
+  padding: 10px;
+  border-radius: 10px;
+}
+.projectDiagram{
+  margin-right: 15px;
+  font-size:18px ;
+  color: black;
+}
+.undo,
+.redo,
+.saveButton,
+.loadContent,
+.addNode 
+{
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border-radius: 15px;
+
+}
+.import{
+  padding: 10px;
+}
+
+.export{
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border-radius: 15px;
+}
+
+.addButton {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border-radius: 15px;
+  background-color: rgb(234, 232, 232);
+}
+
